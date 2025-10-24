@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/ngminhan/zen-wallet#readme",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
-    "firebase-admin": "^13.5.0"
+    "firebase-admin": "^13.5.0",
+    "pg": "^8.16.3"
   }
 }
