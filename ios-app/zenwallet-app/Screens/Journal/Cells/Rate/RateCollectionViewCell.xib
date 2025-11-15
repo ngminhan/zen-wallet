@@ -20,21 +20,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9e-KJ-vTk">
                         <rect key="frame" x="0.0" y="0.0" width="436" height="172"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ed1-Ph-oEU">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ed1-Ph-oEU">
                                 <rect key="frame" x="20" y="20" width="396" height="132"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="How's your spending habit today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tt-VT-Xvc">
-                                        <rect key="frame" x="0.0" y="0.0" width="396" height="48.666666666666664"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Rate your spending today :)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tt-VT-Xvc">
+                                        <rect key="frame" x="0.0" y="0.0" width="396" height="36.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                         <color key="textColor" name="TextColor"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SwO-1V-2j4">
-                                        <rect key="frame" x="0.0" y="68.666666666666671" width="396" height="63.333333333333329"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SwO-1V-2j4">
+                                        <rect key="frame" x="0.0" y="56.666666666666679" width="396" height="75.333333333333314"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IwP-NC-Jsf">
-                                                <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="63.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="75.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="StarLine">
                                                     <color key="baseForegroundColor" name="Green Sheen"/>
@@ -44,7 +44,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHg-gr-pdJ">
-                                                <rect key="frame" x="83.333333333333329" y="0.0" width="62.999999999999986" height="63.333333333333336"/>
+                                                <rect key="frame" x="80.333333333333329" y="0.0" width="74.999999999999986" height="75.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="StarLine">
                                                     <color key="baseForegroundColor" name="Green Sheen"/>
@@ -54,7 +54,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjz-d1-gsb">
-                                                <rect key="frame" x="166.33333333333334" y="0.0" width="63.333333333333343" height="63.333333333333336"/>
+                                                <rect key="frame" x="160.33333333333334" y="0.0" width="75.333333333333343" height="75.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="StarLine">
                                                     <color key="baseForegroundColor" name="Green Sheen"/>
@@ -64,7 +64,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdg-HH-a5x">
-                                                <rect key="frame" x="249.66666666666669" y="0.0" width="63" height="63.333333333333336"/>
+                                                <rect key="frame" x="240.66666666666669" y="0.0" width="75" height="75.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="StarLine">
                                                     <color key="baseForegroundColor" name="Green Sheen"/>
@@ -74,7 +74,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1R-3l-u1z">
-                                                <rect key="frame" x="332.66666666666669" y="0.0" width="63.333333333333314" height="63.333333333333336"/>
+                                                <rect key="frame" x="320.66666666666669" y="0.0" width="75.333333333333314" height="75.333333333333329"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="g1R-3l-u1z" secondAttribute="height" multiplier="1:1" id="74o-yP-xwn"/>
                                                 </constraints>

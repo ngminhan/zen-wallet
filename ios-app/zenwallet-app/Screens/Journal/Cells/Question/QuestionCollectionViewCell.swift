@@ -14,12 +14,12 @@ class QuestionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var answerTextView: UITextView!
     
     var onAnswerChanged: ((String) -> Void)?
+    var onHeightChange: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         answerTextView.delegate = self
-        answerTextView.sizeToFit()
-        answerTextView.layer.cornerRadius = 20
+        answerTextView.layer.cornerRadius = 10
         containerView.layer.cornerRadius = 20
         containerView.layer.borderColor = UIColor.greenSheen.cgColor
         containerView.layer.cornerRadius = 20
@@ -38,5 +38,6 @@ extension QuestionCollectionViewCell: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
         onAnswerChanged?(textView.text)
+        onHeightChange?()
     }
 }

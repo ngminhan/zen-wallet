@@ -13,7 +13,7 @@ class AutoSummaryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var summaryLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.layer.cornerRadius = 20
+        
         containerView.layer.borderColor = UIColor.greenSheen.cgColor
         containerView.layer.cornerRadius = 20
         containerView.layer.borderWidth = 4
@@ -30,7 +30,7 @@ class AutoSummaryCollectionViewCell: UICollectionViewCell {
             return
         }
         
-        let text = "\(summary.commentToday)\n\(summary.commentSaving)"
+        let text = "\(summary.commentToday)\n*********\n\(summary.commentSaving)"
         
         let attributed = NSMutableAttributedString(string: text)
         

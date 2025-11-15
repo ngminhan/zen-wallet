@@ -21,6 +21,6 @@ class QuoteCollectionViewCell: UICollectionViewCell {
     }
     
     func configData(text: String) {
-        quoteLabel.text = text
+        quoteLabel.text = "\"\(text)\""
     }
 }

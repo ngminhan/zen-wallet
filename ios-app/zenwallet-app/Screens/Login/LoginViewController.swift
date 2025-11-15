@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
     }
     
     func setupUI() {
-        containerView.layer.cornerRadius = 50
+        containerView.layer.cornerRadius = 40
         containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         containerView.clipsToBounds = true
         

@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 protocol JournalLayoutDelegate: AnyObject {
-    func journalItemType(at indexPath: IndexPath) -> JournalCardType
-    func journalContentHeight(at indexPath: IndexPath) -> CGFloat
+    func journalItemType(at indexPath: IndexPath) -> JournalCardType // Giữ lại nếu cần cho logic khác
+    func journalContentHeight(at indexPath: IndexPath) -> CGFloat // Chiều cao cell + padding trên/dưới
 }
 
 final class JournalLayout: UICollectionViewLayout {
@@ -18,8 +18,9 @@ final class JournalLayout: UICollectionViewLayout {
     weak var delegate: JournalLayoutDelegate?
 
     // MARK: - Config
-    private let numberOfColumns: Int = UIDevice.current.userInterfaceIdiom == .pad ? 3 : 2
-    private let cellPadding: CGFloat = 8
+    // Thay đổi thành `let` thay vì `private let` để có thể truy cập từ VC
+    let numberOfColumns: Int = UIDevice.current.userInterfaceIdiom == .pad ? 3 : 2
+    let cellPadding: CGFloat = 4
 
     // Cache
     private var cache: [UICollectionViewLayoutAttributes] = []
@@ -37,6 +38,7 @@ final class JournalLayout: UICollectionViewLayout {
     override func prepare() {
         super.prepare()
 
+        // Phải đảm bảo cache.isEmpty để không tính toán lại khi không cần
         guard cache.isEmpty, let cv = collectionView else { return }
 
         let columnWidth = contentWidth / CGFloat(numberOfColumns)
@@ -49,12 +51,10 @@ final class JournalLayout: UICollectionViewLayout {
 
             guard let delegate = delegate else { continue }
 
-            // MARK: - Dynamic height based on item type
-            let itemType = delegate.journalItemType(at: indexPath)
-            let textHeight = delegate.journalContentHeight(at: indexPath)
-
-            let itemHeight = height(for: itemType, baseTextHeight: textHeight)
-
+            // MARK: - Dynamic height: Lấy chiều cao ĐÃ HOÀN THIỆN từ Delegate
+            // itemHeight là chiều cao cell + padding trên/dưới
+            let itemHeight = delegate.journalContentHeight(at: indexPath)
+            
             // Pick column with smallest Y
             let column = yOffset.firstIndex(of: yOffset.min()!) ?? 0
 
@@ -65,6 +65,7 @@ final class JournalLayout: UICollectionViewLayout {
                 height: itemHeight
             )
 
+            // Inset frame để tạo khoảng trống (cellPadding) giữa các cell và mép collectionView
             let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
 
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
@@ -72,6 +73,7 @@ final class JournalLayout: UICollectionViewLayout {
             cache.append(attributes)
 
             contentHeight = max(contentHeight, frame.maxY)
+            // Tiến yOffset xuống bằng tổng chiều cao (cell + padding)
             yOffset[column] += itemHeight
         }
     }
@@ -83,34 +85,16 @@ final class JournalLayout: UICollectionViewLayout {
 
     override func layoutAttributesForItem(at indexPath: IndexPath)
         -> UICollectionViewLayoutAttributes? {
+        // Cần đảm bảo không bị Index Out of Range nếu gọi trước khi prepare chạy
+        guard indexPath.item < cache.count else { return nil }
         return cache[indexPath.item]
     }
 
     override func invalidateLayout() {
         cache.removeAll()
+        contentHeight = 0 // Reset contentHeight
         super.invalidateLayout()
     }
 }
 
-private extension JournalLayout {
-
-    func height(for type: JournalCardType, baseTextHeight: CGFloat) -> CGFloat {
-        switch type {
-
-        case .quote:
-            return baseTextHeight + 80  // top/bottom + icon + padding
-
-        case .autoSummary:
-            return baseTextHeight + 60
-
-        case .rate:
-            return 120  // fixed height cell
-
-        case .question:
-            return baseTextHeight + 70
-
-        case .note:
-            return baseTextHeight + 40
-        }
-    }
-}
+// BỎ HOÀN TOÀN private extension JournalLayout CŨ (chứa hàm height)

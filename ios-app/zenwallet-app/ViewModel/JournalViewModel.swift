@@ -34,13 +34,17 @@ class JournalViewModel {
         return [
             .autoSummary(journal.autoSummary),
             .rate(journal.rate),
-            .question(text: journal.question, answer: journal.answer),
             .quote(journal.quote),
-            .note(journal.note)
+            .question(text: journal.question, answer: journal.answer),
+            .note(journal.note),
         ]
     }
     
     func updateAnswer(_ newText: String) {
         journal?.answer = newText
+    }
+    
+    func updateNote(_ newText: String) {
+        journal?.note = newText
     }
 }

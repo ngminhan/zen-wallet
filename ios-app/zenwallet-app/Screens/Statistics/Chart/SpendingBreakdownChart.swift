@@ -8,10 +8,6 @@
 import SwiftUI
 import Charts
 
-// MARK: - Helper Enum/Structs (Cần có trong project của bạn)
-// Giả định bạn đã có Enum Category
-// Giả định bạn có định nghĩa màu sắc cụ thể cho từng Category
-
 // MARK: - CUSTOM LEGEND VIEW
 struct CustomLegendView: View {
     let data: [ExpenseCategoryItem]
@@ -92,7 +88,7 @@ struct SpendingBreakdownChart: View {
                 SectorMark(
                     angle: .value("Amount", item.amount),
                     innerRadius: .ratio(0.6), // Tăng innerRadius để tạo Donut đẹp hơn
-                    angularInset: 2.0
+                    angularInset: 4.0
                 )
                 // Áp dụng màu sắc tùy chỉnh
                 .foregroundStyle(categoryColor(item.category))

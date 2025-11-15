@@ -13,6 +13,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var noteTextView: UITextView!
     
     var onNoteChanged: ((String?) -> Void)?
+    var onHeightChange: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,9 +21,8 @@ class NoteCollectionViewCell: UICollectionViewCell {
         containerView.layer.borderWidth = 4
         containerView.layer.borderColor = UIColor.greenSheen.cgColor
         containerView.layer.cornerRadius = 20
-        noteTextView.sizeToFit()
         noteTextView.delegate = self
-        noteTextView.layer.cornerRadius = 20
+        noteTextView.layer.cornerRadius = 10
         noteTextView.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     }
     
@@ -35,5 +35,6 @@ class NoteCollectionViewCell: UICollectionViewCell {
 extension NoteCollectionViewCell: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         onNoteChanged?(textView.text)
+        onHeightChange?()
     }
 }
