@@ -11,11 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="zenwallet_app" customModuleProvider="target">
             <connections>
-                <outlet property="appleBtnView" destination="czy-qG-Bbn" id="fWL-3p-37h"/>
                 <outlet property="containerView" destination="LTt-UV-evr" id="Qde-x2-CN8"/>
                 <outlet property="emailTextField" destination="ER6-e1-cPy" id="1z7-fS-8mr"/>
                 <outlet property="emailView" destination="DoO-1u-Gf5" id="yyS-wO-Uo8"/>
-                <outlet property="googleBtnView" destination="lGS-zO-SWE" id="9bQ-JK-QIF"/>
                 <outlet property="loginBtn" destination="eKr-I6-Qlf" id="E6e-eX-Ocl"/>
                 <outlet property="passwordTextField" destination="KNO-hx-Hlf" id="UNg-sl-hgk"/>
                 <outlet property="passwordView" destination="Zrv-4y-dNM" id="qk7-hU-gY6"/>
@@ -34,20 +32,20 @@
                             <rect key="frame" x="40" y="40" width="322" height="550"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpK-Jz-pPI">
-                                    <rect key="frame" x="0.0" y="0.0" width="322" height="52"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="322" height="124.33333333333333"/>
                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="40"/>
                                     <color key="textColor" name="Green Sheen"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVa-JN-eoF" userLabel="Space">
-                                    <rect key="frame" x="0.0" y="62" width="322" height="5"/>
+                                    <rect key="frame" x="0.0" y="134.33333333333331" width="322" height="5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="5" id="Mrh-WG-ZSq"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoO-1u-Gf5">
-                                    <rect key="frame" x="0.0" y="77" width="322" height="60"/>
+                                    <rect key="frame" x="0.0" y="149.33333333333331" width="322" height="60"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bM0-uv-n3i">
                                             <rect key="frame" x="20" y="15" width="282" height="30"/>
@@ -77,17 +75,17 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TX0-2g-uWy" userLabel="Space">
-                                    <rect key="frame" x="0.0" y="147" width="322" height="5"/>
+                                    <rect key="frame" x="0.0" y="219.33333333333331" width="322" height="5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="5" id="M3p-Pg-KM3"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrv-4y-dNM">
-                                    <rect key="frame" x="0.0" y="162" width="322" height="60"/>
+                                    <rect key="frame" x="0.0" y="234.33333333333331" width="322" height="60"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cbr-9J-Ykw">
-                                            <rect key="frame" x="20" y="15" width="282" height="30"/>
+                                            <rect key="frame" x="20" y="15.000000000000057" width="282" height="30"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Password" translatesAutoresizingMaskIntoConstraints="NO" id="S62-WR-PSi">
                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -114,7 +112,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5h-MM-mw5">
-                                    <rect key="frame" x="0.0" y="232" width="322" height="22"/>
+                                    <rect key="frame" x="0.0" y="304.33333333333337" width="322" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="byZ-p0-ZP1"/>
                                     </constraints>
@@ -125,14 +123,14 @@
                                     </buttonConfiguration>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRh-xW-LDA" userLabel="Space">
-                                    <rect key="frame" x="0.0" y="264" width="322" height="20"/>
+                                    <rect key="frame" x="0.0" y="336.33333333333337" width="322" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="250" constant="20" id="i2W-KT-7vq"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKr-I6-Qlf">
-                                    <rect key="frame" x="0.0" y="294" width="322" height="50"/>
+                                    <rect key="frame" x="0.0" y="396.33333333333337" width="322" height="50"/>
                                     <color key="backgroundColor" name="Green Sheen"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="dNM-wb-g2O"/>
@@ -147,65 +145,38 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5vZ-jd-BZW" userLabel="Space">
-                                    <rect key="frame" x="0.0" y="354" width="322" height="20"/>
+                                    <rect key="frame" x="0.0" y="456.33333333333337" width="322" height="20"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="CKD-ca-Ape"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or login with" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfx-k1-3At">
-                                    <rect key="frame" x="0.0" y="384" width="322" height="16.333333333333314"/>
-                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                    <color key="textColor" name="Light Grey"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KOe-5b-dv6">
-                                    <rect key="frame" x="0.0" y="410.33333333333337" width="322" height="80"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYE-zr-rfG" userLabel="Space">
-                                            <rect key="frame" x="0.0" y="0.0" width="65.666666666666671" height="80"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGS-zO-SWE">
-                                            <rect key="frame" x="85.666666666666686" y="0.0" width="65.333333333333314" height="80"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="80" id="3ad-vg-L7G"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czy-qG-Bbn">
-                                            <rect key="frame" x="171" y="0.0" width="65.666666666666686" height="80"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="965-kX-Rxk" userLabel="Space">
-                                            <rect key="frame" x="256.66666666666669" y="0.0" width="65.333333333333314" height="80"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </view>
-                                    </subviews>
-                                </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gb1-KX-cvi" userLabel="Space">
-                                    <rect key="frame" x="0.0" y="500.33333333333337" width="322" height="20"/>
+                                    <rect key="frame" x="0.0" y="486.33333333333337" width="322" height="20"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="Pgu-gj-BbL"/>
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2mH-aj-pJL">
-                                    <rect key="frame" x="0.0" y="530.33333333333337" width="322" height="19.666666666666629"/>
+                                    <rect key="frame" x="0.0" y="516.33333333333337" width="322" height="33.666666666666629"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gay-eh-27e">
-                                            <rect key="frame" x="0.0" y="0.0" width="216" height="19.666666666666668"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="216" height="33.666666666666664"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                             <color key="textColor" name="Light Grey"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilf-Xf-Khb">
-                                            <rect key="frame" x="216" y="0.0" width="106" height="19.666666666666668"/>
+                                            <rect key="frame" x="216" y="0.0" width="106" height="33.666666666666664"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                                 <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <color key="baseForegroundColor" name="Green Sheen"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="signUpBtnTapped:" destination="-1" eventType="touchUpInside" id="dke-lx-p9v"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>

@@ -11,9 +11,16 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var incomeView: UIView!
     @IBOutlet weak var expenseView: UIView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var incomeLabel: UILabel!
+    @IBOutlet weak var expenseLabel: UILabel!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var transactionTableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
     
-    private var transactions: [Transaction] = []
+    private let homeViewModel = HomeViewModel()
+    
+    private var currentFilter: TimeFilter = .day
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,16 +30,31 @@ class HomeViewController: UIViewController {
         transactionTableView.delegate = self
         
         transactionTableView.register(TransactionTableViewCell.nib, forCellReuseIdentifier: TransactionTableViewCell.identifier)
-        transactionTableView.rowHeight = UITableView.automaticDimension
-        transactionTableView.estimatedRowHeight = 80
+        transactionTableView.rowHeight = 80
         
         loadTransactions()
+        
+        print("TOKEN:", UserDefaults.standard.string(forKey: "authToken") ?? "nil")
+
         
     }
     
     func setupUI() {
-        incomeView.layer.cornerRadius = 10
-        expenseView.layer.cornerRadius = 10
+        incomeView.layer.cornerRadius = 25
+        expenseView.layer.cornerRadius = 25
+        
+        containerView.layer.cornerRadius = 40
+        containerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        containerView.clipsToBounds = true
+        
+        let normalFont = UIFont(name: "Futura", size: 13)!
+        let selectedFont = UIFont(name: "Futura", size: 13)!
+
+        segmentControl.setTitleTextAttributes([.font: normalFont, .foregroundColor: UIColor.gray], for: .normal)
+        segmentControl.setTitleTextAttributes([.font: selectedFont, .foregroundColor: UIColor.white], for: .selected)
+        
+        addButton.layer.cornerRadius = 30
+        addButton.setImage(.addRecord.resized(to: CGSize(width: 60, height: 60)), for: .normal)
     }
     
     func loadTransactions() {
@@ -41,25 +63,71 @@ class HomeViewController: UIViewController {
             
             switch result {
             case .success(let transactions):
-                self.transactions = transactions
                 DispatchQueue.main.async {
-                    self.transactionTableView.reloadData()
+                    self.homeViewModel.updateTransactions(transactions, filter: self.currentFilter)
+                    self.updateUI()
                 }
             case .failure(let error):
                 print("Fetch failed:", error)
             }
         }
     }
+    
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        let filters: [TimeFilter] = [.day, .week, .month, .year]
+        currentFilter = filters[sender.selectedSegmentIndex]
+        homeViewModel.applyFilter(currentFilter)
+        updateUI()
+    }
+    
+    func updateUI() {
+        incomeLabel.text = homeViewModel.totalIncome.formattedWithDot
+        expenseLabel.text = homeViewModel.totalExpense.formattedWithDot
+        transactionTableView.reloadData()
+        
+        if homeViewModel.filteredTransactions.isEmpty {
+            transactionTableView.setEmptyMessage("No transaction recorded")
+        } else {
+            transactionTableView.restore()
+        }
 
+    }
+    
+    func showTransactionDetail(_ transaction: Transaction) {
+        let transactionDetailVC = TransactionDetailViewController()
+        let viewModel = TransactionDetailViewModel(transaction: transaction)
+        transactionDetailVC.viewModel = viewModel
+        transactionDetailVC.onTransactionDeleted = { [weak self] in
+            self?.loadTransactions()
+        }
+        transactionDetailVC.onTransactionEditted = { [weak self] in
+            self?.loadTransactions()
+        }
+        transactionDetailVC.modalPresentationStyle = .automatic
+        present(transactionDetailVC, animated: true)
+    }
+    
+    @IBAction func addBtnTapped(_ sender: Any) {
+        let addTransactionViewController = AddTransactionViewController()
+        addTransactionViewController.onTransactionAdded = { [weak self] in
+            self?.loadTransactions()
+        }
+        addTransactionViewController.modalPresentationStyle = .automatic
+        present(addTransactionViewController, animated: true)
+    }
+    
 }
 
 extension HomeViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let transaction = homeViewModel.filteredTransactions[indexPath.row]
+        showTransactionDetail(transaction)
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactions.count
+        return homeViewModel.filteredTransactions.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,8 +137,10 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.identifier, for: indexPath) as! TransactionTableViewCell
         
-        cell.configData(transaction: transactions[indexPath.item])
+        cell.configData(transaction: homeViewModel.filteredTransactions[indexPath.item])
+        cell.selectionStyle = .none
         
         return cell
+        
     }
 }

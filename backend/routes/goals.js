@@ -1,14 +1,14 @@
 import express from "express";
-import {
-  fetchGoals,
-  addGoal,
-  editGoal,
-} from "../controllers/goalsController.js";
+import { verifyToken } from "../middleware/authMiddleware.js";
+import { fetchGoal, updateGoal, fetchGoalProgress } from "../controllers/goalsController.js";
 
 const router = express.Router();
 
-router.get("/", fetchGoals);
-router.post("/", addGoal);
-router.put("/:id", editGoal);
+// /api/goals → lấy hoặc update goal
+router.get("/", verifyToken, fetchGoal);
+router.put("/", verifyToken, updateGoal);
+
+// /api/goals/progress → lấy tiến độ tiết kiệm
+router.get("/progress", verifyToken, fetchGoalProgress);
 
 export default router;

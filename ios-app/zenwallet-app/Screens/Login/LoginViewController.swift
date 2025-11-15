@@ -13,16 +13,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var loginBtn: UIButton!
-    @IBOutlet weak var googleBtnView: UIView!
-    @IBOutlet weak var appleBtnView: UIView!
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    let viewModel = AuthViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -49,7 +47,28 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginBtnTapped(_ sender: Any) {
-        // Todo: login logic
-        UIApplication.sceneDelegate?.goToHome()
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else {
+            return
+        }
+        
+        viewModel.login(email: email, password: password) { result in
+            switch result {
+            case .success(let user):
+                print("Successed login:", user.name)
+                UserDefaults.standard.set(user.token, forKey: "authToken")
+                DispatchQueue.main.async {
+                    UIApplication.sceneDelegate?.goToHome()
+                }
+            case .failure(let error):
+                print("Failed to login:", error.localizedDescription)
+            }
+        }
     }
+    
+    @IBAction func signUpBtnTapped(_ sender: Any) {
+        UIApplication.sceneDelegate?.goToSignUp()
+    }
+
+    
 }

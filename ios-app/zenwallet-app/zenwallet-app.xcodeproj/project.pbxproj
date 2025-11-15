@@ -8,14 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		E34182A32EBFA9FA00A9C20C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E34182A22EBFA9FA00A9C20C /* Alamofire */; };
+		E341830F2EC4A13000A9C20C /* CurrencyFormatter in Frameworks */ = {isa = PBXBuildFile; productRef = E341830E2EC4A13000A9C20C /* CurrencyFormatter */; };
+		E34183112EC4A13000A9C20C /* CurrencyText in Frameworks */ = {isa = PBXBuildFile; productRef = E34183102EC4A13000A9C20C /* CurrencyText */; };
+		E34183132EC4A1B300A9C20C /* CurrencyTextSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E34183122EC4A1B300A9C20C /* CurrencyTextSwiftUI */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E34185C42EC5CB0F00A9C20C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E34182302EAE781F00A9C20C /* zenwallet-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zenwallet-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E341849E2EC5C49300A9C20C /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
+		E34185172EC5C4C200A9C20C /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E341827D2EB0D73400A9C20C /* Exceptions for "zenwallet-app" folder in "zenwallet-app" target */ = {
+		E341852D2EC5C51B00A9C20C /* Exceptions for "zenwallet-app" folder in "zenwallet-app" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -28,7 +46,7 @@
 		E34182322EAE781F00A9C20C /* zenwallet-app */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				E341827D2EB0D73400A9C20C /* Exceptions for "zenwallet-app" folder in "zenwallet-app" target */,
+				E341852D2EC5C51B00A9C20C /* Exceptions for "zenwallet-app" folder in "zenwallet-app" target */,
 			);
 			path = "zenwallet-app";
 			sourceTree = "<group>";
@@ -53,9 +71,9 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E34182A02EBFA91900A9C20C /* Services */ = {
+		E34186CC2EC76ECF00A9C20C /* ViewModel */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Services;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -65,7 +83,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E341830F2EC4A13000A9C20C /* CurrencyFormatter in Frameworks */,
 				E34182A32EBFA9FA00A9C20C /* Alamofire in Frameworks */,
+				E34183132EC4A1B300A9C20C /* CurrencyTextSwiftUI in Frameworks */,
+				E34183112EC4A13000A9C20C /* CurrencyText in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,13 +96,13 @@
 		E34182272EAE781F00A9C20C = {
 			isa = PBXGroup;
 			children = (
+				E34186CC2EC76ECF00A9C20C /* ViewModel */,
 				E34182492EAE78CC00A9C20C /* Extensions */,
 				E341824D2EAE78CC00A9C20C /* Screens */,
 				E34182322EAE781F00A9C20C /* zenwallet-app */,
 				E34182312EAE781F00A9C20C /* Products */,
 				E341825D2EB0D2B000A9C20C /* Tab Bar */,
 				E34182952EBDCE6C00A9C20C /* Models */,
-				E34182A02EBFA91900A9C20C /* Services */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +110,20 @@
 			isa = PBXGroup;
 			children = (
 				E34182302EAE781F00A9C20C /* zenwallet-app.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E34184A22EC5C49300A9C20C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E341851B2EC5C4C200A9C20C /* Products */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +138,7 @@
 				E341822C2EAE781F00A9C20C /* Sources */,
 				E341822D2EAE781F00A9C20C /* Frameworks */,
 				E341822E2EAE781F00A9C20C /* Resources */,
+				E34185C42EC5CB0F00A9C20C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -114,11 +150,14 @@
 				E341824D2EAE78CC00A9C20C /* Screens */,
 				E341825D2EB0D2B000A9C20C /* Tab Bar */,
 				E34182952EBDCE6C00A9C20C /* Models */,
-				E34182A02EBFA91900A9C20C /* Services */,
+				E34186CC2EC76ECF00A9C20C /* ViewModel */,
 			);
 			name = "zenwallet-app";
 			packageProductDependencies = (
 				E34182A22EBFA9FA00A9C20C /* Alamofire */,
+				E341830E2EC4A13000A9C20C /* CurrencyFormatter */,
+				E34183102EC4A13000A9C20C /* CurrencyText */,
+				E34183122EC4A1B300A9C20C /* CurrencyTextSwiftUI */,
 			);
 			productName = "zenwallet-app";
 			productReference = E34182302EAE781F00A9C20C /* zenwallet-app.app */;
@@ -150,10 +189,21 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				E34182A12EBFA9FA00A9C20C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E341830D2EC4A13000A9C20C /* XCRemoteSwiftPackageReference "CurrencyText" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E34182312EAE781F00A9C20C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E34184A22EC5C49300A9C20C /* Products */;
+					ProjectRef = E341849E2EC5C49300A9C20C /* Charts.xcodeproj */;
+				},
+				{
+					ProductGroup = E341851B2EC5C4C200A9C20C /* Products */;
+					ProjectRef = E34185172EC5C4C200A9C20C /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E341822F2EAE781F00A9C20C /* zenwallet-app */,
@@ -393,6 +443,14 @@
 				minimumVersion = 5.10.2;
 			};
 		};
+		E341830D2EC4A13000A9C20C /* XCRemoteSwiftPackageReference "CurrencyText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marinofelipe/CurrencyText.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -400,6 +458,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E34182A12EBFA9FA00A9C20C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		E341830E2EC4A13000A9C20C /* CurrencyFormatter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E341830D2EC4A13000A9C20C /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyFormatter;
+		};
+		E34183102EC4A13000A9C20C /* CurrencyText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E341830D2EC4A13000A9C20C /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyText;
+		};
+		E34183122EC4A1B300A9C20C /* CurrencyTextSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E341830D2EC4A13000A9C20C /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyTextSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

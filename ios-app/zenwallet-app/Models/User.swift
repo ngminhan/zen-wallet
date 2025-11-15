@@ -5,7 +5,7 @@
 //  Created by Nguyễn Minh An on 7/11/25.
 //
 
-struct User: Codable {
+struct User: nonisolated Codable {
     let userID: Int
     var name: String
     var email: String
@@ -19,4 +19,12 @@ struct User: Codable {
         case createdAt = "created_at"
     }
 }
+
+struct AuthResponse: nonisolated Codable {
+    let user_id: Int
+    let name: String
+    let email: String
+    let token: String
+}
+
 

@@ -11,24 +11,40 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         let window = UIWindow(windowScene: windowScene)
-        let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        let nav = UINavigationController(rootViewController: loginVC)
-        window.rootViewController = nav
+        
+        if let token = UserDefaults.standard.string(forKey: "authToken"), !token.isEmpty {
+            let homeVC = CustomTabBarController()
+            let nav = UINavigationController(rootViewController: homeVC)
+            window.rootViewController = nav
+        } else {
+            let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+            let nav = UINavigationController(rootViewController: loginVC)
+            window.rootViewController = nav
+        }
+        
         window.backgroundColor = .white
         window.makeKeyAndVisible()
-        
         self.window = window
     }
     
     func goToHome() {
-        let home = HomeViewController()
+        let home = CustomTabBarController()
         changeRootViewController(to: home)
+    }
+    
+    func goToSignUp() {
+        let signUpVC = SignUpViewController()
+        changeRootViewController(to: signUpVC)
+    }
+    
+    func goToLogin() {
+        let loginVC = LoginViewController()
+        changeRootViewController(to: loginVC)
     }
     
     private func changeRootViewController(to vc: UIViewController) {
@@ -44,26 +60,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                           completion: nil)
     }
     
-    func sceneDidDisconnect(_ scene: UIScene) {
-        
-    }
-    
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        
-    }
-    
-    func sceneWillResignActive(_ scene: UIScene) {
-        
-    }
-    
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        
-    }
-    
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        
-    }
-    
-    
+    func sceneDidDisconnect(_ scene: UIScene) {}
+    func sceneDidBecomeActive(_ scene: UIScene) {}
+    func sceneWillResignActive(_ scene: UIScene) {}
+    func sceneWillEnterForeground(_ scene: UIScene) {}
+    func sceneDidEnterBackground(_ scene: UIScene) {}
 }
-

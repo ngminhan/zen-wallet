@@ -1,5 +1,5 @@
 {
-  "originHash" : "11b78eba97192d19796cff581fdf69b3e65b441188b1448a1b67e5d7b825a354",
+  "originHash" : "44039d08304f58d97b53b454cfd0b4deb80f9fd3df78a8015f3c35242096c1d3",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "513364f870f6bfc468f9d2ff0a95caccc10044c5",
         "version" : "5.10.2"
+      }
+    },
+    {
+      "identity" : "currencytext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marinofelipe/CurrencyText.git",
+      "state" : {
+        "revision" : "03d08a028a32547e26f50751660c7c0b3cfa3279",
+        "version" : "3.0.1"
       }
     }
   ],

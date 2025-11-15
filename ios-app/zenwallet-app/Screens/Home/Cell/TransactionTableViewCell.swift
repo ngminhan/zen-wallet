@@ -12,6 +12,7 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryImage: UIImageView!
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     
@@ -24,28 +25,20 @@ class TransactionTableViewCell: UITableViewCell {
         setupUI()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
     func setupUI() {
+        containerView.layoutIfNeeded()
         containerView.layer.cornerRadius = containerView.frame.height / 2
+        containerView.layer.masksToBounds = true
     }
     
     func configData(transaction: Transaction) {
-       
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM yyyy, HH:mm"
-        timeLabel.text = formatter.string(from: transaction.createdAt)
+        timeLabel.text = transaction.createdAt.toLocalString(format: "HH:mm, dd/MM/yyyy")
         
-        let amountText = String(format: "%.0f", transaction.amount)
+        let amountText = transaction.amount.formattedWithDot
         
         switch transaction.type {
         case .income:
-            containerView.backgroundColor = .systemTeal.withAlphaComponent(0.2)
-            amountLabel.textColor = .systemTeal
+            containerView.backgroundColor = .lightBlue
             amountLabel.text = "+\(amountText)"
             categoryImage.image = UIImage.profit
             
@@ -56,14 +49,13 @@ class TransactionTableViewCell: UITableViewCell {
             }
             
         case .expense:
-            containerView.backgroundColor = .systemRed.withAlphaComponent(0.15)
-            amountLabel.textColor = .systemRed
+            containerView.backgroundColor = .salmon
             amountLabel.text = "-\(amountText)"
             
             if let note = transaction.note, !note.isEmpty {
                 noteLabel.text = note
             } else {
-                noteLabel.text = transaction.category.displayName
+                noteLabel.text = transaction.category?.displayName
             }
             
             switch transaction.category {
@@ -75,6 +67,8 @@ class TransactionTableViewCell: UITableViewCell {
                 categoryImage.image = UIImage.spiritual
             case .unexpected:
                 categoryImage.image = UIImage.unexpected
+            case .none:
+                break
             }
         }
     }

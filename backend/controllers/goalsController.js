@@ -1,111 +1,74 @@
-import {
-  getGoalsByUser,
-  createGoal,
-  updateGoal,
-} from "../models/goalsModel.js";
+import { getGoalByUser, upsertGoal, getGoalProgress } from "../models/goalsModel.js";
 
-export async function fetchGoals(req, res) {
+/**
+ * ✅ Lấy goal cơ bản
+ */
+export async function fetchGoal(req, res) {
   try {
-    const { firebase_uid } = req.user;
-    const userQuery = await pool.query(
-      "SELECT user_id FROM users WHERE firebase_uid = $1",
-      [firebase_uid]
-    );
-    const user_id = userQuery.rows[0].user_id;
+    const userId = req.user?.user_id;
+    const year = parseInt(req.query.year);
+    const month = parseInt(req.query.month);
 
-    const result = await pool.query(
-      "SELECT * FROM goals WHERE user_id = $1 ORDER BY year DESC, month DESC",
-      [user_id]
-    );
+    if (!userId) return res.status(401).json({ message: "Unauthorized" });
+    if (!year || !month) return res.status(400).json({ message: "Missing year or month" });
 
-    res.json(result.rows);
+    const goal = await getGoalByUser(userId, year, month);
+    if (!goal) {
+      return res.json({
+        goal_id: 0,
+        user_id: userId,
+        year,
+        month,
+        amount: 0,
+        created_at: null
+      });
+    }
+
+    res.json(goal);
   } catch (error) {
-    console.error("❌ Error fetching goals:", error.message);
+    console.error("❌ Error fetching goal:", error.message);
     res.status(500).json({ error: error.message });
   }
 }
 
-
-export async function addGoal(req, res) {
+/**
+ * ✅ Cập nhật hoặc tạo mới goal
+ */
+export async function updateGoal(req, res) {
   try {
-    const { firebase_uid } = req.user;
-    const { month, year, target_amount, note } = req.body;
+    const userId = req.user?.user_id;
+    if (!userId) return res.status(401).json({ message: "Unauthorized" });
 
-    if (!month || !year || !target_amount) {
-      return res
-        .status(400)
-        .json({ message: "Thiếu month, year hoặc target_amount" });
-    }
+    const year = parseInt(req.body.year);
+    const month = parseInt(req.body.month);
+    const amount = Number(req.body.amount);
 
-    // Lấy user_id từ bảng users dựa vào firebase_uid
-    const userResult = await pool.query(
-      "SELECT user_id FROM users WHERE firebase_uid = $1",
-      [firebase_uid]
-    );
+    if (!year || !month) return res.status(400).json({ message: "Missing year or month" });
 
-    if (userResult.rows.length === 0) {
-      return res.status(404).json({ message: "Không tìm thấy user tương ứng" });
-    }
-
-    const user_id = userResult.rows[0].user_id;
-
-    const result = await pool.query(
-      `INSERT INTO goals (user_id, month, year, target_amount, note)
-       VALUES ($1, $2, $3, $4, $5)
-       RETURNING *`,
-      [user_id, month, year, target_amount, note]
-    );
-
-    res.status(201).json(result.rows[0]);
-  } catch (error) {
-    console.error("❌ Error adding goal:", error.message);
-    res.status(500).json({ error: error.message });
-  }
-}
-
-export async function editGoal(req, res) {
-  try {
-    const { firebase_uid } = req.user;
-    const { id } = req.params;
-    const { target_amount, note } = req.body;
-
-    // Lấy user_id của người đang đăng nhập
-    const userResult = await pool.query(
-      "SELECT user_id FROM users WHERE firebase_uid = $1",
-      [firebase_uid]
-    );
-
-    if (userResult.rows.length === 0) {
-      return res.status(404).json({ message: "Không tìm thấy user" });
-    }
-
-    const user_id = userResult.rows[0].user_id;
-
-    // Kiểm tra xem goal có thuộc user này không
-    const goalResult = await pool.query(
-      "SELECT * FROM goals WHERE goal_id = $1 AND user_id = $2",
-      [id, user_id]
-    );
-
-    if (goalResult.rows.length === 0) {
-      return res
-        .status(403)
-        .json({ message: "Không có quyền sửa mục tiêu này hoặc không tồn tại" });
-    }
-
-    // Cập nhật
-    const updated = await pool.query(
-      `UPDATE goals
-       SET target_amount = $1, note = $2
-       WHERE goal_id = $3
-       RETURNING *`,
-      [target_amount, note, id]
-    );
-
-    res.json(updated.rows[0]);
+    const updated = await upsertGoal(userId, year, month, amount);
+    res.json(updated);
   } catch (error) {
     console.error("❌ Error updating goal:", error.message);
     res.status(500).json({ error: error.message });
   }
 }
 
+/**
+ * ✅ Lấy tiến độ tiết kiệm (progress)
+ */
+export async function fetchGoalProgress(req, res) {
+  try {
+    const userId = req.user?.user_id;
+    const year = parseInt(req.query.year);
+    const month = parseInt(req.query.month);
+
+    if (!userId) return res.status(401).json({ message: "Unauthorized" });
+    if (!year || !month) return res.status(400).json({ message: "Missing year or month" });
+
+    const progress = await getGoalProgress(userId, year, month);
+    res.json(progress);
+  } catch (error) {
+    console.error("❌ Error fetching goal progress:", error.message);
+    res.status(500).json({ error: error.message });
+  }
+}
