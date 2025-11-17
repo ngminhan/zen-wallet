@@ -149,6 +149,13 @@ Create an environment file:
 cp .env.example .env
 ```
 
+## 🔑 Demo Login
+
+For testing the app, use the following account:
+
+Email: demo@zenwallet.com  
+Password: demo1234
+
 ---
 
 ## 🗄 Database Setup
