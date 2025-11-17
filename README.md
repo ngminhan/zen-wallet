@@ -6,6 +6,27 @@ This repository contains both the iOS application and the backend API.
 
 ---
 
+## 📸 Screenshots
+
+<p float="left">
+  <img src="./screenshots/login.png" width="260" />
+  <img src="./screenshots/home.png" width="260" />
+  <img src="./screenshots/add_transaction.png" width="260" />
+</p>
+
+<p float="left">
+  <img src="./screenshots/statistic.png" width="260" />
+  <img src="./screenshots/journal.png" width="260" />
+  <img src="./screenshots/profile.png" width="260" />
+</p>
+
+<p float="left">
+  <img src="./screenshots/goal.png" width="260" />
+  <img src="./screenshots/edit_goal.png" width="260" />
+</p>
+
+---
+
 ## 📂 Project Structure
 
 ```
@@ -13,6 +34,7 @@ zenwallet/
  ├── zenwallet-app/         # iOS application (UIKit + MVVM)
  ├── zenwallet-backend/     # Backend API (Node.js + Express)
  ├── database/              # SQL schema and optional seed data
+ ├── screenshots/
  ├── README.md
  └── .gitignore
 ```
@@ -27,13 +49,13 @@ ZenWallet’s iOS app is built with **UIKit**, structured using **MVVM**, and in
 - Add, edit, delete transactions  
 - Income and expense categorization  
 - Monthly saving goals  
-- Line chart, bar chart, pie chart  
+- Line chart, pie chart  
 - Custom UI components (progress bar, tab bar, cell views)  
 - JWT authentication  
 - Clean and minimal interface  
 
 ### Technologies Used
-- Swift 5  
+- Swift 6
 - UIKit  
 - AutoLayout + XIB  
 - Swift Charts (via SwiftUI wrapper)  
@@ -127,6 +149,13 @@ Create an environment file:
 cp .env.example .env
 ```
 
+## 🔑 Demo Login
+
+For testing the app, use the following account:
+
+Email: demo@zenwallet.com  
+Password: demo1234
+
 ---
 
 ## 🗄 Database Setup
@@ -160,10 +189,11 @@ http://127.0.0.1:3000
 
 ## 👤 Author
 **Nguyễn Minh An**  
-iOS Developer — HEDSPI (Vietnam–Japan IT Program)  
+HEDSPI (Vietnam–Japan IT Program)  
 Hanoi University of Science and Technology
 
 ---
 
 ## 📄 License
 MIT License
+Feel free to use or contribute.
