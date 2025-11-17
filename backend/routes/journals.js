@@ -1,4 +1,3 @@
-// routes/journal.routes.js
 import express from "express";
 import {
   getJournal,

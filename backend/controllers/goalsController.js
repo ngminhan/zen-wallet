@@ -1,8 +1,5 @@
 import { getGoalByUser, upsertGoal, getGoalProgress } from "../models/goalsModel.js";
 
-/**
- * ✅ Lấy goal cơ bản
- */
 export async function fetchGoal(req, res) {
   try {
     const userId = req.user?.user_id;
@@ -26,14 +23,11 @@ export async function fetchGoal(req, res) {
 
     res.json(goal);
   } catch (error) {
-    console.error("❌ Error fetching goal:", error.message);
+    console.error("Error fetching goal:", error.message);
     res.status(500).json({ error: error.message });
   }
 }
 
-/**
- * ✅ Cập nhật hoặc tạo mới goal
- */
 export async function updateGoal(req, res) {
   try {
     const userId = req.user?.user_id;
@@ -48,14 +42,11 @@ export async function updateGoal(req, res) {
     const updated = await upsertGoal(userId, year, month, amount);
     res.json(updated);
   } catch (error) {
-    console.error("❌ Error updating goal:", error.message);
+    console.error("Error updating goal:", error.message);
     res.status(500).json({ error: error.message });
   }
 }
 
-/**
- * ✅ Lấy tiến độ tiết kiệm (progress)
- */
 export async function fetchGoalProgress(req, res) {
   try {
     const userId = req.user?.user_id;
@@ -68,7 +59,7 @@ export async function fetchGoalProgress(req, res) {
     const progress = await getGoalProgress(userId, year, month);
     res.json(progress);
   } catch (error) {
-    console.error("❌ Error fetching goal progress:", error.message);
+    console.error("Error fetching goal progress:", error.message);
     res.status(500).json({ error: error.message });
   }
 }

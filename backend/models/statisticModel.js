@@ -1,8 +1,5 @@
 import pool from "../db.js";
 
-/* -------------------------------------------------------------
-   1️⃣ OVERVIEW CHO LINE CHART — income/expense theo từng ngày
--------------------------------------------------------------- */
 export async function getOverviewByMonth(userId, year, month) {
   const query = `
     SELECT 
@@ -27,9 +24,6 @@ export async function getOverviewByMonth(userId, year, month) {
   }));
 }
 
-/* -------------------------------------------------------------
-   2️⃣ SPENDING BREAKDOWN — tổng expense theo category
--------------------------------------------------------------- */
 export async function getExpenseByCategoryMonth(userId, year, month) {
   const query = `
     SELECT 

@@ -1,8 +1,5 @@
 import pool from "../db.js";
 
-/**
- * 🔹 Lấy tất cả transaction của 1 user
- */
 export async function getUserTransactions(userId) {
   const result = await pool.query(
     `SELECT transaction_id, user_id, type, category, amount::float8 AS amount, note, created_at
@@ -14,9 +11,6 @@ export async function getUserTransactions(userId) {
   return result.rows;
 }
 
-/**
- * 🔹 Tạo transaction mới (hỗ trợ truyền createdAt)
- */
 export async function insertTransaction({ userId, type, category, amount, note, createdAt }) {
   if (type === "INCOME") {
     const result = await pool.query(
@@ -41,9 +35,6 @@ export async function insertTransaction({ userId, type, category, amount, note, 
   }
 }
 
-/**
- * 🔹 Xoá transaction theo ID + user
- */
 export async function deleteTransactionById(userId, transactionId) {
   const result = await pool.query(
     `DELETE FROM transactions
@@ -54,9 +45,6 @@ export async function deleteTransactionById(userId, transactionId) {
   return result.rowCount > 0;
 }
 
-/**
- * 🔹 Cập nhật transaction
- */
 export async function updateTransactionById(userId, transactionId, data) {
   const { type, category, amount, note, createdAt } = data;
 

@@ -9,7 +9,6 @@ import { verifyToken } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// ✅ Chỉ user có token mới được gọi
 router.get("/", verifyToken, fetchTransactions);
 router.post("/", verifyToken, addTransaction);
 router.put("/:id", verifyToken, updateTransaction);

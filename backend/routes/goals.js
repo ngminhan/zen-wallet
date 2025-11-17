@@ -4,11 +4,8 @@ import { fetchGoal, updateGoal, fetchGoalProgress } from "../controllers/goalsCo
 
 const router = express.Router();
 
-// /api/goals → lấy hoặc update goal
 router.get("/", verifyToken, fetchGoal);
 router.put("/", verifyToken, updateGoal);
-
-// /api/goals/progress → lấy tiến độ tiết kiệm
 router.get("/progress", verifyToken, fetchGoalProgress);
 
 export default router;

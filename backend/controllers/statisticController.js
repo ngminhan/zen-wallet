@@ -22,7 +22,7 @@ export async function fetchOverview(req, res) {
 
 
     } catch (err) {
-        console.error("❌ Error fetching overview:", err.message);
+        console.error("Error fetching overview:", err.message);
         res.status(500).json({ error: err.message });
     }
 }
@@ -55,7 +55,7 @@ export async function fetchExpenseByCategory(req, res) {
 
 
     } catch (err) {
-        console.error("❌ Error fetching category stats:", err.message);
+        console.error("Error fetching category stats:", err.message);
         res.status(500).json({ error: err.message });
     }
 }

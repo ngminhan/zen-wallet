@@ -1,4 +1,3 @@
-// models/journal.model.js
 import pool from "../db.js";
 
 export const getJournalByDate = async (userId, date) => {

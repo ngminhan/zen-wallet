@@ -1,8 +1,5 @@
 import pool from "../db.js";
 
-/**
- * ✅ Lấy goal cơ bản
- */
 export async function getGoalByUser(userId, year, month) {
   const query = `
     SELECT * FROM goals
@@ -12,9 +9,6 @@ export async function getGoalByUser(userId, year, month) {
   return rows[0] || null;
 }
 
-/**
- * ✅ Cập nhật hoặc tạo mới goal
- */
 export async function upsertGoal(userId, year, month, amount) {
   const query = `
     INSERT INTO goals (user_id, year, month, amount)
@@ -27,9 +21,6 @@ export async function upsertGoal(userId, year, month, amount) {
   return rows[0];
 }
 
-/**
- * ✅ Lấy tiến độ tiết kiệm (progress) – Smart Saving Ratio
- */
 export async function getGoalProgress(userId, year, month) {
   const query = `
     WITH monthly_data AS (
@@ -85,13 +76,12 @@ export async function getGoalProgress(userId, year, month) {
 
   const { rows } = await pool.query(query, [userId, year, month]);
 
-  // Nếu không có dữ liệu giao dịch, trả về mặc định với target_pace = 0
   return rows[0] || {
     goal_amount: 0,
     total_income: 0,
     total_expense: 0,
     saving: 0,
     progress: 0,
-    target_pace: 0, // Thêm target_pace vào giá trị mặc định
+    target_pace: 0, 
   };
 }

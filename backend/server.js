@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import cors from "cors";
 import pool from "./db.js";
 
-// import route files
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import transactionRoutes from "./routes/transactions.js";
@@ -15,11 +14,9 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Middlewares
 app.use(cors());
 app.use(express.json());
 
-// ✅ Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/transactions", transactionRoutes);
@@ -27,13 +24,11 @@ app.use("/api/goals", goalRoutes);
 app.use("/api/statistic", statisticsRoute);
 app.use("/api/journals", journalRoutes);
 
-// ✅ Root route
 app.get("/", (req, res) => {
-  res.send("✅ ZenWallet backend is running!");
+  res.send("ZenWallet backend is running!");
 });
 
-// ✅ Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });

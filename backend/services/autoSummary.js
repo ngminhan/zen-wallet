@@ -1,6 +1,5 @@
 import pool from "../db.js";
 
-// ---------- CATEGORY COMMENT ----------
 function getCategoryComment(category) {
     switch (category) {
         case "ESSENTIAL":
@@ -16,7 +15,6 @@ function getCategoryComment(category) {
     }
 }
 
-// ---------- SAVING COMMENT ----------
 function getSavingComment(change) {
     if (change > 0.20)
         return "You saved significantly more than yesterday — amazing!";
@@ -29,12 +27,10 @@ function getSavingComment(change) {
     return "Your spending increased a lot — keep an eye on your expenses.";
 }
 
-// ---------- MAIN FUNCTION ----------
 export async function getDailySummary(userId, date) {
   try {
-    console.log("📌 [autoSummary] START user:", userId, "date:", date);
+    console.log("[autoSummary] START user:", userId, "date:", date);
 
-    // --- Today summary ---
     const todayQuery = `
       SELECT 
         COALESCE(SUM(CASE WHEN type = 'INCOME' THEN amount ELSE 0 END), 0) AS total_income,
@@ -54,7 +50,7 @@ export async function getDailySummary(userId, date) {
     `;
 
     const today = await pool.query(todayQuery, [userId, date]);
-    console.log("📌 SQL RESULT today:", today.rows);
+    console.log("SQL RESULT today:", today.rows);
 
     const t = today.rows[0];
 
@@ -64,7 +60,6 @@ export async function getDailySummary(userId, date) {
 
     const topCategory = t.top_category;
 
-    // --- Yesterday summary ---
     const d = new Date(date);
     d.setDate(d.getDate() - 1);
     const yDate = d.toISOString().slice(0, 10);
@@ -78,7 +73,7 @@ export async function getDailySummary(userId, date) {
     `;
 
     const yesterday = await pool.query(yesterdayQuery, [userId, yDate]);
-    console.log("📌 SQL RESULT yesterday:", yesterday.rows);
+    console.log("SQL RESULT yesterday:", yesterday.rows);
 
     const y = yesterday.rows[0];
 
@@ -89,25 +84,24 @@ export async function getDailySummary(userId, date) {
         ? (savingToday - savingYesterday) / Math.abs(savingYesterday)
         : 0;
 
-    console.log("📌 FINAL SUMMARY:", {
+    console.log("FINAL SUMMARY:", {
       totalIncome,
       totalExpense,
       topCategory,
       savingChange
     });
 
-    // ✔ CHỈ THAY PHẦN NÀY
     return {
       total_income: totalIncome,
       total_expense: totalExpense,
       top_category: topCategory,
-      comment_today: getCategoryComment(topCategory),     // dòng đã sửa
+      comment_today: getCategoryComment(topCategory),   
       saving_change: savingChange,
-      comment_saving: getSavingComment(savingChange),     // dòng đã sửa
+      comment_saving: getSavingComment(savingChange),     
     };
 
   } catch (err) {
-    console.error("❌ autoSummary ERROR:", err);
+    console.error("autoSummary ERROR:", err);
     return null;
   }
 }
