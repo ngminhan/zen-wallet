@@ -1,3 +1,12 @@
+![iOS](https://img.shields.io/badge/iOS-17+-0d1117?style=for-the-badge&logo=apple&logoColor=white)
+![Swift](https://img.shields.io/badge/Swift-6-0d1117?style=for-the-badge&logo=swift&logoColor=F05138)
+![UIKit](https://img.shields.io/badge/Framework-UIKit-0d1117?style=for-the-badge)
+![Node.js](https://img.shields.io/badge/Node.js-0d1117?style=for-the-badge&logo=node.js&logoColor=339933)
+![Express](https://img.shields.io/badge/Express.js-0d1117?style=for-the-badge&logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0d1117?style=for-the-badge&logo=postgresql&logoColor=4169E1)
+![JWT](https://img.shields.io/badge/JWT-0d1117?style=for-the-badge)
+![MIT](https://img.shields.io/badge/License-MIT-0d1117?style=for-the-badge)
+
 # ⭐ ZenWallet  
 ### Full-Stack Personal Finance App (iOS UIKit + Node.js + PostgreSQL)
 
