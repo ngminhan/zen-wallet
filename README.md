@@ -122,21 +122,6 @@ cd zenwallet
 
 ---
 
-## 📱 Run the iOS App
-```sh
-cd zenwallet-app
-open ZenWallet.xcodeproj
-```
-
-Requirements:
-- macOS 13+  
-- Xcode 15+  
-- iOS 17+  
-
-Run using Command + R.
-
----
-
 ## 🖥 Run the Backend
 ```sh
 cd zenwallet-backend
@@ -148,13 +133,6 @@ Create an environment file:
 ```sh
 cp .env.example .env
 ```
-
-## 🔑 Demo Login
-
-For testing the app, use the following account:
-
-Email: demo@zenwallet.com  
-Password: demo1234
 
 ---
 
@@ -177,6 +155,29 @@ http://127.0.0.1:3000
 
 ---
 
+## 📱 Run the iOS App
+```sh
+cd zenwallet-app
+open ZenWallet.xcodeproj
+```
+
+Requirements:
+- macOS 13+  
+- Xcode 15+  
+- iOS 17+  
+
+Run using Command + R.
+
+---
+
+## 🔑 Demo Login
+
+For testing the app, use the following account:
+
+Email: demo@zenwallet.com  
+Password: demo1234
+
+
 ## 🗺 Roadmap
 - Dark Mode  
 - CSV/Excel export  
@@ -195,5 +196,5 @@ Hanoi University of Science and Technology
 ---
 
 ## 📄 License
-MIT License
+MIT License. 
 Feel free to use or contribute.
