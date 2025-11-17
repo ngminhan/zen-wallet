@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E341830F2EC4A13000A9C20C /* CurrencyFormatter in Frameworks */ = {isa = PBXBuildFile; productRef = E341830E2EC4A13000A9C20C /* CurrencyFormatter */; };
+		E34183112EC4A13000A9C20C /* CurrencyText in Frameworks */ = {isa = PBXBuildFile; productRef = E34183102EC4A13000A9C20C /* CurrencyText */; };
+		E34183132EC4A1B300A9C20C /* CurrencyTextSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E34183122EC4A1B300A9C20C /* CurrencyTextSwiftUI */; };
+		E34188732ECB570E00A9C20C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E34188722ECB570E00A9C20C /* Alamofire */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E34185C42EC5CB0F00A9C20C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E34182302EAE781F00A9C20C /* zenwallet-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zenwallet-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E341849E2EC5C49300A9C20C /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
+		E34185172EC5C4C200A9C20C /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E341852D2EC5C51B00A9C20C /* Exceptions for "zenwallet-app" folder in "zenwallet-app" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E341822F2EAE781F00A9C20C /* zenwallet-app */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E34182322EAE781F00A9C20C /* zenwallet-app */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E341852D2EC5C51B00A9C20C /* Exceptions for "zenwallet-app" folder in "zenwallet-app" target */,
+			);
+			path = "zenwallet-app";
+			sourceTree = "<group>";
+		};
+		E34182492EAE78CC00A9C20C /* Extensions */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E341824D2EAE78CC00A9C20C /* Screens */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E341825D2EB0D2B000A9C20C /* Tab Bar */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		E34182952EBDCE6C00A9C20C /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E34186CC2EC76ECF00A9C20C /* ViewModel */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E341822D2EAE781F00A9C20C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E341830F2EC4A13000A9C20C /* CurrencyFormatter in Frameworks */,
+				E34188732ECB570E00A9C20C /* Alamofire in Frameworks */,
+				E34183132EC4A1B300A9C20C /* CurrencyTextSwiftUI in Frameworks */,
+				E34183112EC4A13000A9C20C /* CurrencyText in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E34182272EAE781F00A9C20C = {
+			isa = PBXGroup;
+			children = (
+				E34186CC2EC76ECF00A9C20C /* ViewModel */,
+				E34182492EAE78CC00A9C20C /* Extensions */,
+				E341824D2EAE78CC00A9C20C /* Screens */,
+				E34182322EAE781F00A9C20C /* zenwallet-app */,
+				E34182312EAE781F00A9C20C /* Products */,
+				E341825D2EB0D2B000A9C20C /* Tab Bar */,
+				E34182952EBDCE6C00A9C20C /* Models */,
+			);
+			sourceTree = "<group>";
+		};
+		E34182312EAE781F00A9C20C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E34182302EAE781F00A9C20C /* zenwallet-app.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E34184A22EC5C49300A9C20C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E341851B2EC5C4C200A9C20C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E341822F2EAE781F00A9C20C /* zenwallet-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E34182432EAE782000A9C20C /* Build configuration list for PBXNativeTarget "zenwallet-app" */;
+			buildPhases = (
+				E341822C2EAE781F00A9C20C /* Sources */,
+				E341822D2EAE781F00A9C20C /* Frameworks */,
+				E341822E2EAE781F00A9C20C /* Resources */,
+				E34185C42EC5CB0F00A9C20C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E34182322EAE781F00A9C20C /* zenwallet-app */,
+				E34182492EAE78CC00A9C20C /* Extensions */,
+				E341824D2EAE78CC00A9C20C /* Screens */,
+				E341825D2EB0D2B000A9C20C /* Tab Bar */,
+				E34182952EBDCE6C00A9C20C /* Models */,
+				E34186CC2EC76ECF00A9C20C /* ViewModel */,
+			);
+			name = "zenwallet-app";
+			packageProductDependencies = (
+				E341830E2EC4A13000A9C20C /* CurrencyFormatter */,
+				E34183102EC4A13000A9C20C /* CurrencyText */,
+				E34183122EC4A1B300A9C20C /* CurrencyTextSwiftUI */,
+				E34188722ECB570E00A9C20C /* Alamofire */,
+			);
+			productName = "zenwallet-app";
+			productReference = E34182302EAE781F00A9C20C /* zenwallet-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E34182282EAE781F00A9C20C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					E341822F2EAE781F00A9C20C = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+				};
+			};
+			buildConfigurationList = E341822B2EAE781F00A9C20C /* Build configuration list for PBXProject "zenwallet-app" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E34182272EAE781F00A9C20C;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E341830D2EC4A13000A9C20C /* XCRemoteSwiftPackageReference "CurrencyText" */,
+				E34188712ECB570E00A9C20C /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E34182312EAE781F00A9C20C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E34184A22EC5C49300A9C20C /* Products */;
+					ProjectRef = E341849E2EC5C49300A9C20C /* Charts.xcodeproj */;
+				},
+				{
+					ProductGroup = E341851B2EC5C4C200A9C20C /* Products */;
+					ProjectRef = E34185172EC5C4C200A9C20C /* Charts.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E341822F2EAE781F00A9C20C /* zenwallet-app */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E341822E2EAE781F00A9C20C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E341822C2EAE781F00A9C20C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E34182442EAE782000A9C20C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "zenwallet-app/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "annm.zenwallet-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E34182452EAE782000A9C20C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "zenwallet-app/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "annm.zenwallet-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E34182462EAE782000A9C20C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		E34182472EAE782000A9C20C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E341822B2EAE781F00A9C20C /* Build configuration list for PBXProject "zenwallet-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E34182462EAE782000A9C20C /* Debug */,
+				E34182472EAE782000A9C20C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E34182432EAE782000A9C20C /* Build configuration list for PBXNativeTarget "zenwallet-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E34182442EAE782000A9C20C /* Debug */,
+				E34182452EAE782000A9C20C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E341830D2EC4A13000A9C20C /* XCRemoteSwiftPackageReference "CurrencyText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marinofelipe/CurrencyText.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.1;
+			};
+		};
+		E34188712ECB570E00A9C20C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E341830E2EC4A13000A9C20C /* CurrencyFormatter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E341830D2EC4A13000A9C20C /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyFormatter;
+		};
+		E34183102EC4A13000A9C20C /* CurrencyText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E341830D2EC4A13000A9C20C /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyText;
+		};
+		E34183122EC4A1B300A9C20C /* CurrencyTextSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E341830D2EC4A13000A9C20C /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyTextSwiftUI;
+		};
+		E34188722ECB570E00A9C20C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E34188712ECB570E00A9C20C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E34182282EAE781F00A9C20C /* Project object */;
+}

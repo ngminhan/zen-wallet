@@ -1,0 +1,24 @@
+{
+  "originHash" : "fa8dd4bd486bd40474dc370532b412be85d8ba273bc795fec11b6bb58ff5f3ce",
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire",
+      "state" : {
+        "revision" : "513364f870f6bfc468f9d2ff0a95caccc10044c5",
+        "version" : "5.10.2"
+      }
+    },
+    {
+      "identity" : "currencytext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marinofelipe/CurrencyText.git",
+      "state" : {
+        "revision" : "03d08a028a32547e26f50751660c7c0b3cfa3279",
+        "version" : "3.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}

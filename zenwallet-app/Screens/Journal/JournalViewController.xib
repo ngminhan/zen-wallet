@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JournalViewController" customModule="zenwallet_app" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="tvc-Ip-i2V" id="xVN-yX-e01"/>
+                <outlet property="containerView" destination="uUq-JJ-PLs" id="PAK-B9-YVk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="tvc-Ip-i2V">
+                    <rect key="frame" x="20" y="0.0" width="353" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="sd7-2c-ZWo">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUq-JJ-PLs">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
+                    <color key="backgroundColor" name="Green Sheen"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="rNZ-wQ-tOr"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mtI-tR-slb">
+                    <rect key="frame" x="35" y="80" width="323" height="40"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" verticalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="Qsb-wq-ABE">
+                            <rect key="frame" x="0.0" y="0.0" width="101" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-0r-kBH">
+                            <rect key="frame" x="101" y="0.0" width="121.33333333333331" height="40"/>
+                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
+                            <color key="textColor" name="Creamy Yellow"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" verticalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="RWS-Lg-aI8">
+                            <rect key="frame" x="222.33333333333331" y="0.0" width="50" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zuy-9i-O9s">
+                            <rect key="frame" x="272.33333333333331" y="0.0" width="50.666666666666686" height="40"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="calendar" catalog="system">
+                                <color key="baseForegroundColor" name="Creamy Yellow"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="calendarButtonTapped:" destination="-1" eventType="touchUpInside" id="jEZ-rn-1pI"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Eks-0r-kBH" firstAttribute="centerX" secondItem="mtI-tR-slb" secondAttribute="centerX" constant="0.16666666666665719" id="21j-kd-EiW"/>
+                        <constraint firstAttribute="height" constant="40" id="4fi-wX-gBQ"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" name="Light Blue"/>
+            <constraints>
+                <constraint firstItem="uUq-JJ-PLs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3Xq-oq-V35"/>
+                <constraint firstItem="uUq-JJ-PLs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6Ts-Nc-rJG"/>
+                <constraint firstItem="mtI-tR-slb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Acv-tK-DUt"/>
+                <constraint firstAttribute="bottom" secondItem="tvc-Ip-i2V" secondAttribute="bottom" id="L97-RG-fWd"/>
+                <constraint firstItem="mtI-tR-slb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="TCl-xT-kmi"/>
+                <constraint firstAttribute="trailing" secondItem="mtI-tR-slb" secondAttribute="trailing" constant="35" id="Va5-e7-riI"/>
+                <constraint firstItem="tvc-Ip-i2V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="WJG-pV-jbp"/>
+                <constraint firstItem="tvc-Ip-i2V" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Yn2-MA-gAX"/>
+                <constraint firstAttribute="trailing" secondItem="uUq-JJ-PLs" secondAttribute="trailing" id="fPK-qK-Map"/>
+                <constraint firstAttribute="trailing" secondItem="tvc-Ip-i2V" secondAttribute="trailing" constant="20" id="idU-MO-sg7"/>
+                <constraint firstItem="mtI-tR-slb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="mvt-eq-9vq"/>
+            </constraints>
+            <point key="canvasLocation" x="50" y="103"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="calendar" catalog="system" width="128" height="107"/>
+        <namedColor name="Creamy Yellow">
+            <color red="0.96078431372549022" green="0.94117647058823528" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green Sheen">
+            <color red="0.45098039215686275" green="0.66274509803921566" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Light Blue">
+            <color red="0.65490196078431373" green="0.77254901960784317" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
