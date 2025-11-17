@@ -1,32 +1,97 @@
 import pool from "../db.js";
 
-export async function getGoalsByUser() {
-  const result = await pool.query(`
-    SELECT g.*, u.name AS user_name
-    FROM goals g
-    JOIN users u ON g.user_id = u.user_id
-    ORDER BY g.created_at DESC
-  `);
-  return result.rows;
+/**
+ * ✅ Lấy goal cơ bản
+ */
+export async function getGoalByUser(userId, year, month) {
+  const query = `
+    SELECT * FROM goals
+    WHERE user_id = $1 AND year = $2 AND month = $3
+  `;
+  const { rows } = await pool.query(query, [userId, year, month]);
+  return rows[0] || null;
 }
 
-export async function createGoal(user_id, month, year, amount) {
-  const result = await pool.query(
-    `INSERT INTO goals (user_id, month, year, amount)
-     VALUES ($1, $2, $3, $4)
-     RETURNING *`,
-    [user_id, month, year, amount]
-  );
-  return result.rows[0];
+/**
+ * ✅ Cập nhật hoặc tạo mới goal
+ */
+export async function upsertGoal(userId, year, month, amount) {
+  const query = `
+    INSERT INTO goals (user_id, year, month, amount)
+    VALUES ($1, $2, $3, $4)
+    ON CONFLICT (user_id, year, month)
+    DO UPDATE SET amount = EXCLUDED.amount
+    RETURNING *;
+  `;
+  const { rows } = await pool.query(query, [userId, year, month, amount]);
+  return rows[0];
 }
 
-export async function updateGoal(goal_id, amount) {
-  const result = await pool.query(
-    `UPDATE goals
-     SET amount = $1
-     WHERE goal_id = $2
-     RETURNING *`,
-    [amount, goal_id]
-  );
-  return result.rows[0];
+/**
+ * ✅ Lấy tiến độ tiết kiệm (progress) – Smart Saving Ratio
+ */
+export async function getGoalProgress(userId, year, month) {
+  const query = `
+    WITH monthly_data AS (
+      SELECT 
+        COALESCE(SUM(CASE WHEN t.type = 'INCOME' THEN t.amount ELSE 0 END), 0) AS total_income,
+        COALESCE(SUM(CASE WHEN t.type = 'EXPENSE' THEN t.amount ELSE 0 END), 0) AS total_expense
+      FROM transactions t
+      WHERE t.user_id = $1 
+        AND EXTRACT(YEAR FROM t.created_at) = $2
+        AND EXTRACT(MONTH FROM t.created_at) = $3
+    )
+    SELECT 
+      md.total_income,
+      md.total_expense,
+      GREATEST(md.total_income - md.total_expense, 0) AS saving,
+      
+      COALESCE(g.amount, 0) AS goal_amount, 
+      
+      -- 🎯 Thêm cột Target Pace (Mục tiêu Lộ trình)
+      COALESCE(g.amount, 0) * (
+          DATE_PART('day', CURRENT_DATE) /
+          DATE_PART('day', DATE_TRUNC('month', CURRENT_DATE) + INTERVAL '1 month - 1 day')
+      ) AS target_pace,
+
+      -- Logic tính Progress (Giữ nguyên)
+      CASE 
+          -- 1. Nếu mục tiêu bằng 0 hoặc không tồn tại
+          WHEN COALESCE(g.amount, 0) = 0 THEN 1.00 
+          -- 2. Ngược lại, tính toán progress bình thường
+          ELSE ROUND(
+              LEAST(
+                  GREATEST(
+                      ((md.total_income - md.total_expense) /
+                          NULLIF(
+                              g.amount * (
+                                  DATE_PART('day', CURRENT_DATE) /
+                                  DATE_PART('day', DATE_TRUNC('month', CURRENT_DATE) + INTERVAL '1 month - 1 day')
+                              ), 0
+                          )
+                      )::numeric,
+                      0
+                  ),
+                  1
+              ), 2
+          )
+      END AS progress
+      
+    FROM monthly_data md
+    LEFT JOIN goals g ON g.user_id = $1 
+                     AND g.year = $2 
+                     AND g.month = $3;
+  `;
+
+  const { rows } = await pool.query(query, [userId, year, month]);
+
+  // Nếu không có dữ liệu giao dịch, trả về mặc định với target_pace = 0
+  return rows[0] || {
+    goal_amount: 0,
+    total_income: 0,
+    total_expense: 0,
+    saving: 0,
+    progress: 0,
+    target_pace: 0, // Thêm target_pace vào giá trị mặc định
+  };
 }

@@ -1,0 +1,28 @@
+# Xcode
+build/
+DerivedData/
+*.xcworkspace/xcuserdata/
+*.xcuserstate
+
+# SwiftPM
+.build/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Swift
+*.swiftsourceinfo
+
+# iOS archive
+*.ipa
+
+# User data
+*.DS_Store
+
+# Environment
+.env
+Secrets.swift
