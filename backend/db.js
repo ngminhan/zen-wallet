@@ -11,6 +11,8 @@ setTypeParser(builtins.NUMERIC, (val) => (val === null ? null : parseFloat(val))
 setTypeParser(builtins.FLOAT8,  (val) => (val === null ? null : parseFloat(val)));
 setTypeParser(builtins.INT8,    (val) => (val === null ? null : parseInt(val, 10)));
 
+console.log("PG PASSWORD RAW:", process.env.PGPASSWORD, typeof process.env.PGPASSWORD);
+
 const pool = new Pool({
   user: process.env.PGUSER,
   host: process.env.PGHOST,
