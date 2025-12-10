@@ -118,6 +118,7 @@ class EditTransactionViewController: UIViewController {
                 switch result {
                 case .success(let updatedTransaction):
                     self?.onTransactionUpdated?(updatedTransaction)
+                    NotificationCenter.default.post(name: .transactionDidUpdate, object: nil)
                     self?.dismiss(animated: false)
                 case .failure(let error):
                     print("Update failed:", error.localizedDescription)

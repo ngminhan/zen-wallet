@@ -26,6 +26,7 @@ class StatisticsViewController: UIViewController {
         setupCharts()
         setupUI()
         reloadAll()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleTransactionUpdate), name: .transactionDidUpdate, object: nil)
     }
     
     private func setupUI() {
@@ -86,6 +87,10 @@ class StatisticsViewController: UIViewController {
         }
     }
     
+    @objc func handleTransactionUpdate() {
+        self.reloadAll()
+    }
+    
     @IBAction func chartTypeSegmentChanged(_ sender: Any) {
         var newType: ChartType
         switch overViewSegment.selectedSegmentIndex {
@@ -118,5 +123,9 @@ class StatisticsViewController: UIViewController {
         }
         monthYearPickerVC.modalPresentationStyle = .overFullScreen
         present(monthYearPickerVC, animated: false)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

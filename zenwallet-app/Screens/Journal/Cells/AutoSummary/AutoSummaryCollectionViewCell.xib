@@ -22,7 +22,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jQ-w7-bdR">
                                 <rect key="frame" x="20" y="20" width="195" height="81"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" name="TextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

@@ -28,8 +28,6 @@ class AddTransactionViewController: UIViewController {
     private var currencyFormatter: CurrencyFormatter!
     private var textFieldDelegate: CurrencyUITextFieldDelegate!
     
-    var onTransactionAdded: (() -> Void)?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -86,7 +84,7 @@ class AddTransactionViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success:
-                    self?.onTransactionAdded?()
+                    NotificationCenter.default.post(name: .transactionDidUpdate, object: nil)
                     self?.dismiss(animated: true)
                 case .failure(let error):
                     print("Failed to add transaction:", error.localizedDescription)

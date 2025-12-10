@@ -27,6 +27,7 @@ class GoalsViewController: UIViewController {
         setupUI()
         setupProgressBar()
         fetchData()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleTransactionUpdate), name: .transactionDidUpdate, object: nil)
     }
     
     private func setupUI() {
@@ -48,6 +49,10 @@ class GoalsViewController: UIViewController {
             circularProgressBarView.widthAnchor.constraint(equalTo: progressBarView.widthAnchor, multiplier: 0.8),
             circularProgressBarView.heightAnchor.constraint(equalTo: progressBarView.heightAnchor, multiplier: 0.8)
         ])
+    }
+    
+    @objc func handleTransactionUpdate() {
+        self.fetchData()
     }
     
     private func fetchData() {
@@ -119,6 +124,10 @@ class GoalsViewController: UIViewController {
         }
         monthYearPickerVC.modalPresentationStyle = .overFullScreen
         present(monthYearPickerVC, animated: false)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

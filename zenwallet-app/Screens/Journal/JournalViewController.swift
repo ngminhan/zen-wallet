@@ -37,12 +37,14 @@ class JournalViewController: UIViewController {
         setupUI()
         setupCollectionView()
         fetchData()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleTransactionUpdate), name: .transactionDidUpdate, object: nil)
     }
     
     func setupUI() {
         containerView.layer.cornerRadius = 50
         containerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         containerView.clipsToBounds = true
+        
     }
     
     func setupCollectionView() {
@@ -97,27 +99,33 @@ class JournalViewController: UIViewController {
     
     
     func fetchData() {
-        viewModel.fetchJournal(for: "2025-11-15") {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: viewModel.selectedDate)
+        
+        viewModel.fetchJournal(for: dateString) {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
+                self.collectionView.collectionViewLayout.invalidateLayout()
             }
         }
     }
     
-    @IBAction func calendarButtonTapped(_ sender: Any) {
-        let monthYearPickerVC = MonthYearPickerViewController()
+    @objc func handleTransactionUpdate() {
+        self.fetchData()
+    }
+    
+    @IBAction func datePickerChanged(_ sender: Any) {
+        guard let datePicker = sender as? UIDatePicker else { return }
+        let selectedDate = datePicker.date
+        let selectedDateOnly = Calendar.current.startOfDay(for: selectedDate)
         
-        monthYearPickerVC.onMonthYearChanged = { [weak self] date in
-            guard let self = self else { return }
-            
-            let month = Calendar.current.component(.month, from: date)
-            let year = Calendar.current.component(.year, from: date)
-            
-            self.viewModel.selectedMonth = month
-            self.viewModel.selectedYear = year
-        }
-        monthYearPickerVC.modalPresentationStyle = .overFullScreen
-        present(monthYearPickerVC, animated: false)
+        self.viewModel.selectedDate = selectedDateOnly
+        self.fetchData()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

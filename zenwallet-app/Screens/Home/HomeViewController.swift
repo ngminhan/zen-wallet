@@ -33,6 +33,12 @@ class HomeViewController: UIViewController {
         transactionTableView.rowHeight = 80
         
         loadTransactions()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleTransactionUpdate), name: .transactionDidUpdate, object: nil)
+    }
+    
+    @objc func handleTransactionUpdate() {
+        self.loadTransactions()
     }
     
     func setupUI() {
@@ -93,23 +99,18 @@ class HomeViewController: UIViewController {
         let transactionDetailVC = TransactionDetailViewController()
         let viewModel = TransactionDetailViewModel(transaction: transaction)
         transactionDetailVC.viewModel = viewModel
-        transactionDetailVC.onTransactionDeleted = { [weak self] in
-            self?.loadTransactions()
-        }
-        transactionDetailVC.onTransactionEditted = { [weak self] in
-            self?.loadTransactions()
-        }
         transactionDetailVC.modalPresentationStyle = .automatic
         present(transactionDetailVC, animated: true)
     }
     
     @IBAction func addBtnTapped(_ sender: Any) {
         let addTransactionViewController = AddTransactionViewController()
-        addTransactionViewController.onTransactionAdded = { [weak self] in
-            self?.loadTransactions()
-        }
         addTransactionViewController.modalPresentationStyle = .automatic
         present(addTransactionViewController, animated: true)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
 }

@@ -49,20 +49,12 @@
                             <color key="textColor" name="Creamy Yellow"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" verticalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="RWS-Lg-aI8">
-                            <rect key="frame" x="222.33333333333331" y="0.0" width="50" height="40"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zuy-9i-O9s">
-                            <rect key="frame" x="272.33333333333331" y="0.0" width="50.666666666666686" height="40"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="calendar" catalog="system">
-                                <color key="baseForegroundColor" name="Creamy Yellow"/>
-                            </buttonConfiguration>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="9kS-L1-iXI">
+                            <rect key="frame" x="222" y="0.0" width="101" height="40"/>
                             <connections>
-                                <action selector="calendarButtonTapped:" destination="-1" eventType="touchUpInside" id="jEZ-rn-1pI"/>
+                                <action selector="datePickerChanged:" destination="-1" eventType="valueChanged" id="3hH-1y-gVA"/>
                             </connections>
-                        </button>
+                        </datePicker>
                     </subviews>
                     <constraints>
                         <constraint firstItem="Eks-0r-kBH" firstAttribute="centerX" secondItem="mtI-tR-slb" secondAttribute="centerX" constant="0.16666666666665719" id="21j-kd-EiW"/>
@@ -88,7 +80,6 @@
         </view>
     </objects>
     <resources>
-        <image name="calendar" catalog="system" width="128" height="107"/>
         <namedColor name="Creamy Yellow">
             <color red="0.96078431372549022" green="0.94117647058823528" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

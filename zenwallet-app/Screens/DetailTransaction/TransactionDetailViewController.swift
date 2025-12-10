@@ -19,9 +19,6 @@ class TransactionDetailViewController: UIViewController {
     
     var viewModel: TransactionDetailViewModel!
     
-    var onTransactionDeleted: (() -> Void)?
-    var onTransactionEditted: (() -> Void)?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configData(transaction: viewModel.transaction)
@@ -54,7 +51,7 @@ class TransactionDetailViewController: UIViewController {
         editTransactionVC.viewModel = viewModel
         editTransactionVC.onTransactionUpdated = { [weak self] updatedTransaction in
             self?.configData(transaction: updatedTransaction)
-            self?.onTransactionEditted?()
+            NotificationCenter.default.post(name: .transactionDidUpdate, object: nil)
         }
         editTransactionVC.modalPresentationStyle = .overCurrentContext
         present(editTransactionVC, animated: false)
@@ -71,7 +68,7 @@ class TransactionDetailViewController: UIViewController {
                 DispatchQueue.main.async {
                     switch result {
                     case .success:
-                        self.onTransactionDeleted?()
+                        NotificationCenter.default.post(name: .transactionDidUpdate, object: nil)
                         self.dismiss(animated: true)
                     case .failure(let error):
                         self.showConfirmAlert(title: "Error", message: error.localizedDescription)

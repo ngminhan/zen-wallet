@@ -11,11 +11,14 @@ class JournalViewModel {
     
     var journal: JournalResponse?
     
-    var selectedYear: Int = Calendar.current.component(.year, from: Date())
-    var selectedMonth: Int = Calendar.current.component(.month, from: Date())
+    var selectedDate: Date = Date()
     
     func fetchJournal(for date: String, completion: @escaping () -> Void) {
-        JournalService.shared.fetchJournal(date: date) { result in
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: selectedDate)
+        
+        JournalService.shared.fetchJournal(date: dateString) { result in
             switch result {
             case .success(let data):
                 self.journal = data
