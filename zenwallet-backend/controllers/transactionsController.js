@@ -48,7 +48,7 @@ export async function addTransaction(req, res) {
         await client.query("ROLLBACK");
         return res.status(400).json({ message: "Invalid date format" });
       }
-      createdAt = parsedDate.toISOString(); 
+      createdAt = parsedDate.toISOString();
     }
 
     const transaction = await insertTransaction({
@@ -57,7 +57,7 @@ export async function addTransaction(req, res) {
       category,
       amount,
       note,
-      createdAt, 
+      createdAt,
     });
 
     await client.query("COMMIT");

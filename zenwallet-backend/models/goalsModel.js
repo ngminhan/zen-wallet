@@ -39,17 +39,13 @@ export async function getGoalProgress(userId, year, month) {
       
       COALESCE(g.amount, 0) AS goal_amount, 
       
-      -- 🎯 Thêm cột Target Pace (Mục tiêu Lộ trình)
       COALESCE(g.amount, 0) * (
           DATE_PART('day', CURRENT_DATE) /
           DATE_PART('day', DATE_TRUNC('month', CURRENT_DATE) + INTERVAL '1 month - 1 day')
       ) AS target_pace,
 
-      -- Logic tính Progress (Giữ nguyên)
       CASE 
-          -- 1. Nếu mục tiêu bằng 0 hoặc không tồn tại
           WHEN COALESCE(g.amount, 0) = 0 THEN 1.00 
-          -- 2. Ngược lại, tính toán progress bình thường
           ELSE ROUND(
               LEAST(
                   GREATEST(
@@ -82,6 +78,6 @@ export async function getGoalProgress(userId, year, month) {
     total_expense: 0,
     saving: 0,
     progress: 0,
-    target_pace: 0, 
+    target_pace: 0,
   };
 }

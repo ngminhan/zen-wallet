@@ -29,7 +29,7 @@ export const getJournal = async (req, res) => {
     console.log("User:", req.user);
 
     try {
-        const userId = req.user.user_id;  
+        const userId = req.user.user_id;
         const date = req.query.date;
 
         if (!userId) return res.status(400).json({ error: "Missing userId" });
@@ -59,7 +59,7 @@ export const getJournal = async (req, res) => {
 
         res.json({
             ...response,
-            autoSummary: autoSummary   
+            autoSummary: autoSummary
         });
 
         console.log("▶ getJournal OK — userId =", userId, "date =", date);
@@ -72,7 +72,7 @@ export const getJournal = async (req, res) => {
 
 export const postJournal = async (req, res) => {
     try {
-        const userId = req.user.user_id;  
+        const userId = req.user.user_id;
         const data = req.body;
 
         if (!userId) return res.status(400).json({ error: "Missing userId" });
@@ -88,7 +88,7 @@ export const postJournal = async (req, res) => {
 
 export const putJournal = async (req, res) => {
     try {
-        const userId = req.user.user_id; 
+        const userId = req.user.user_id;
         const data = req.body;
 
         if (!userId) return res.status(400).json({ error: "Missing userId" });
