@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var settingContainerView: UIView!
     @IBOutlet weak var supportContainerView: UIView!
     @IBOutlet weak var aboutUsContainerView: UIView!
+    @IBOutlet weak var logOutContainerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,7 @@ class ProfileViewController: UIViewController {
         settingContainerView.layer.cornerRadius = settingContainerView.frame.height / 2
         supportContainerView.layer.cornerRadius = supportContainerView.frame.height / 2
         aboutUsContainerView.layer.cornerRadius = aboutUsContainerView.frame.height / 2
+        logOutContainerView.layer.cornerRadius = logOutContainerView.frame.height / 2
     }
     
 }
