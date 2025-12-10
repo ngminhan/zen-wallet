@@ -125,7 +125,7 @@ POST   /api/auth/register
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/your-username/zenwallet.git
+git clone https://github.com/ngminhan/zen-wallet.git
 cd zenwallet
 ```
 
